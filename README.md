@@ -8,7 +8,7 @@ Visit https://www.paulhempshall.com/io/dead-pixel/
 
 ## License
 
-	HTTP Headers
+	Dead Pixel
 	Copyright (C) 2016, Paul Hempshall. All rights reserved.
 
 	This program is free software: you can redistribute it and/or modify
