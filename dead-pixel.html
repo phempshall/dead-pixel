@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dead Pixel Test</title>
+	<style>
+		body {
+			font: normal normal normal 14px/18px Arial;
+		}
+		#dead-pixel {
+			background: #ffffff;
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+</head>
+<body>
+
+<h1>Welcome to Dead Pixel</h1>
+
+<p>
+	Use this tool to cycle through various colours in full screen to help identify dead pixels.
+</p>
+
+<p>
+	<b>Get started:</b>
+</p>
+<p>
+	<ul>
+		<li>put browser in to full screen mode (F11)</li>
+		<li>use left mouse button to cycle between colours</li>
+		<li>look at the screen and find dead pixels</li>
+	</ul>
+</p>
+<p>
+	<button id="start">Start test</button>
+</p>
+<p>
+	<b>Press Escape to exit full screen</b>
+</p>
+<p>
+	<a href="https://github.com/phempshall/dead-pixel/">DeadPixel @ Github</a>
+</p>
+<div id="dead-pixel"></div>
+
+<script>
+function requestFullScreen (element) {
+	var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullScreen;
+
+	requestMethod.call(element);
+}
+
+function cycleColours () {
+	if (count === colours.length) {
+		count = 0;
+	}
+
+	deadPixel.style.backgroundColor = colours[count];
+
+	count++;
+}
+
+var deadPixel = document.getElementById('dead-pixel'),
+		startButton = document.getElementById('start'),
+		colours = [
+			'#FF0000',
+			'#0000FF',
+			'#00FF00',
+			'#FFFF00',
+			'#FF00FF',
+			'#00FFFF',
+			'#000000',
+			'#FFFFFF'
+		],
+		count = 0;
+
+startButton.onclick = function () { 
+	requestFullScreen(deadPixel); 
+};
+
+deadPixel.onclick = function () {
+	cycleColours();
+};
+
+
+</script>
+
+</body>
+</html>
